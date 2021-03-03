@@ -1,0 +1,33 @@
+<!-- reactive form starts here -->
+<mat-card>
+  <mat-toolbar>reactive form</mat-toolbar>
+  <br><br>
+  <form [formGroup]="RegisterForm" (ngSubmit)="getData()">
+
+  <mat-form-field>
+  <input
+   type="text"
+   matInput
+   placeholder="Enter name" formControlName="username">
+  </mat-form-field>
+  <br><br>
+
+  <mat-form-field>
+    <input
+     type="text"
+     matInput
+     placeholder="Enter your email" formControlName="email">
+    </mat-form-field>
+    <br><br>
+
+    <mat-form-field>
+    <input
+     type="text"
+     matInput
+     placeholder="Enter your address" formControlName="address">
+    </mat-form-field>
+    <br><br>
+
+    <button type="submit" mat-raised-button color="primary"><mat-icon>home</mat-icon>ok</button>
+  </form>
+  </mat-card>
