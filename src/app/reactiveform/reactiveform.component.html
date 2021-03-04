@@ -2,15 +2,22 @@
 <mat-card>
   <mat-toolbar>reactive form</mat-toolbar>
   <br><br>
-  <form [formGroup]="RegisterForm" (ngSubmit)="getData()">
+  <form [formGroup]="RegisterForm" (ngSubmit)="Onsubmit()">
 
   <mat-form-field>
   <input
    type="text"
    matInput
-   placeholder="Enter name" formControlName="username">
+   placeholder="Enter name"
+   formControlName="username"
+   [ngClass]="{'is-invalid':submitted && f.username.errors}">
   </mat-form-field>
   <br><br>
+
+  <mat-error *ngIf="submitted && f.username.errors">
+    <mat-error *ngIf ="f.name.errors?.required">
+    </mat-error>
+   </mat-error>
 
   <mat-form-field>
     <input

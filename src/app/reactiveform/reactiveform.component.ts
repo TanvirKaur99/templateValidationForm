@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{FormControl,FormGroup} from '@angular/forms';
+import{FormBuilder, FormControl,FormGroup, Validators} from '@angular/forms';
 
 
 
@@ -9,18 +9,34 @@ import{FormControl,FormGroup} from '@angular/forms';
   styleUrls: ['./reactiveform.component.css']
 })
 export class ReactiveformComponent implements OnInit {
+  RegisterForm!:FormGroup;
 
-  constructor() { }
 
+  constructor(private formbuilder:FormBuilder) {
+
+                                               }
+
+                                               submitted=false
   ngOnInit(): void {
+    this.RegisterForm=this.formbuilder.group({
+      username:['',Validators.required],
+      email:['',Validators.required,Validators.email],
+      address:['',Validators.required],
+    });
   }
-  RegisterForm=new FormGroup({
-    username:new FormControl(''),
-    email:new FormControl(''),
-    address:new FormControl(''),
-  });
-  getData(){
-    console.log(this.RegisterForm.value);
-  }
+
+get f(){
+  return this.RegisterForm.controls;
+}
+
+Onsubmit(){
+  this.submitted=true;
+  if(this.RegisterForm.invalid)
+  return;
+}
+
+  // getData(){
+  //   console.log(this.RegisterForm.value);
+  // }
 
 }
