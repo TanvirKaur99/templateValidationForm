@@ -15,7 +15,7 @@ export class TemplateformComponent implements OnInit {
   hide= true;
   hide1= true;
   contactPattern="^[6-9][0-9]{9}$";
-  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  //emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   model={
     username:'',

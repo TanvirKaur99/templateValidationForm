@@ -48,7 +48,7 @@
       name="useremail"
       #useremail="ngModel"
       [(ngModel)]="model.useremail"
-      pattern="emailPattern"
+      email
       required
       [ngClass]="{'is-invalid':userform.submitted && useremail.invalid}"
       >
@@ -61,7 +61,7 @@
         mail should be entered
       </mat-error>
 
-      <mat-error *ngIf="useremail.errors?.pattern">
+      <mat-error *ngIf="useremail.errors?.email;">
         should be in mail format
       </mat-error>
       </mat-error>
